@@ -1,0 +1,19 @@
+<div class="well">
+<h4>{{question}}</h4>
+<p><em>{{description}}</em></p>
+<p><em>{{poll_id}}</em></p>
+<form action="#" class="form-horizontal" name="myForm" id="PollViewForm" method="post" accept-charset="utf-8">
+    <table class="table">
+        <tr ng-repeat="answer in answers">
+            <td width="1%" nowrap="">
+                <input type="radio" ng-model="selectedAns.selectedOption" name="poll-choice" value="{{answer.id}}" id="poll-{{$index}}" ng-click="hasChoice()" ng-required="enableButton.length > 0">
+            </td>
+            <td>
+                <label for='poll-{{$index}}'>{{answer.answer}}</label>
+            </td>
+        </tr>
+
+    </table>
+    <p><input ng-click="doVote()" class="btn btn-primary" ng-disabled="enableButton.length==0" type="button" value="Vote &rarr;"></p>
+</form>
+</div>

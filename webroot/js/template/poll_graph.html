@@ -1,0 +1,11 @@
+<div class="well">
+    <h4>{{question}}</h4>
+    <p><em>{{description}}</em></p>
+	<div ng-repeat="answer in answers">
+		<strong>{{answer.answer}}</strong><span class="pull-right">{{answer.percent}}%</span>
+		<div class="progress progress-info">
+			<div class="bar" style="width: {{answer.percent}}%">{{answer.percent}}%</div>
+		</div>
+	</div>
+	<p>Total Votes: {{total_votes}}</p>
+</div>
