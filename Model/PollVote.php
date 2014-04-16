@@ -76,7 +76,7 @@ class PollVote extends PollsAppModel {
 			foreach ($this->invalidFields() as $key => $error) :
 				$errors .= $error[0];
 			endforeach;
-			throw new Exception(__('Error : %s', $errors));
+			throw new Exception(__d('polls','Error : %s', $errors));
 		}
 	}
 
@@ -101,7 +101,7 @@ class PollVote extends PollsAppModel {
 		}
 
 		if (empty($data['PollVote']['poll_option_id']) && empty($data['PollOption']['option'])) {
-			throw new Exception(__('Empty vote'));
+			throw new Exception(__d('polls','Empty vote'));
 		}
 		return $data;
 	}

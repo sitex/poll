@@ -30,7 +30,7 @@ class PollsController extends PollsAppController {
  *
  */
 	public function beforeFilter(){
-		$this->Security->unlockedActions = array('admin_edit', 'submit_poll');
+		$this->Security->unlockedActions = array('admin_edit', 'admin_add', 'submit_poll');
 		parent::beforeFilter();
 	}
 /**
@@ -174,7 +174,7 @@ class PollsController extends PollsAppController {
 	public function index($id = null) {
 		$this->Poll->id = $id;
 		if (!$this->Poll->exists()) {
-			throw new NotFoundException(__('Invalid poll'));
+			throw new NotFoundException(__d('polls','Invalid poll'));
 		}
 
 		$poll = $this->Poll->find('first', array(
@@ -213,7 +213,7 @@ class PollsController extends PollsAppController {
 	public function admin_view($id = null) {
 		$this->Poll->id = $id;
 		if (!$this->Poll->exists()) {
-			throw new NotFoundException(__('Invalid poll'));
+			throw new NotFoundException(__d('polls','Invalid poll'));
 		}
 
 		$poll = $this->Poll->find('first', array(
@@ -238,10 +238,10 @@ class PollsController extends PollsAppController {
 			$this->Poll->create();
 			//pr($this->request->data);exit;
 			if ($this->Poll->saveAll($this->request->data)) {
-				$this->Session->setFlash(__('The poll has been saved', 'flash/success'));
+				$this->Session->setFlash(__d('polls','The poll has been saved', 'flash/success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The poll could not be saved. Please, try again.', 'flash/error'));
+				$this->Session->setFlash(__d('polls','The poll could not be saved. Please, try again.', 'flash/error'));
 			}
 		}
 	}
@@ -255,16 +255,16 @@ class PollsController extends PollsAppController {
 	public function admin_edit($id = null) {
 		$this->Poll->id = $id;
 		if (!$this->Poll->exists()) {
-			throw new NotFoundException(__('Invalid poll'));
+			throw new NotFoundException(__d('polls','Invalid poll'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			//pr($this->request->data);exit;
 			//$this->Poll->PollOption->deleteAll(array('PollOption.poll_id'=>$id));
 			if ($this->Poll->saveAll($this->request->data)) {
-				$this->Session->setFlash(__('The poll has been saved'), 'flash/success');
+				$this->Session->setFlash(__d('polls','The poll has been saved'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The poll could not be saved. Please, try again.'), 'flash/error');
+				$this->Session->setFlash(__d('polls','The poll could not be saved. Please, try again.'), 'flash/error');
 			}
 		} else {
 			$this->request->data = $this->Poll->read(null, $id);
@@ -283,15 +283,15 @@ class PollsController extends PollsAppController {
 		}
 		$this->Poll->id = $id;
 		if (!$this->Poll->exists()) {
-			throw new NotFoundException(__('Invalid poll'));
+			throw new NotFoundException(__d('polls','Invalid poll'));
 		}
 		if ($this->Poll->delete()) {
 			$this->Poll->PollOption->deleteAll(array('PollOption.poll_id'=>$id));
 			$this->Poll->PollVote->deleteAll(array('PollOption.poll_id'=>$id));
-			$this->Session->setFlash(__('Poll deleted'), 'flash/success');
+			$this->Session->setFlash(__d('polls','Poll deleted'), 'flash/success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Poll was not deleted'), 'flash/error');
+		$this->Session->setFlash(__d('polls','Poll was not deleted'), 'flash/error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

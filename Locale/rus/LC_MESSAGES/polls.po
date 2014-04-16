@@ -1,0 +1,57 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Croogo\n"
+"POT-Creation-Date: 2010-08-04 12:35+0400\n"
+"PO-Revision-Date: 2010-08-06 20:35+0300\n"
+"Last-Translator: Black Sea Group <bs@bs-group.zip>\n"
+"Language-Team: BS-Group <bs@bs-group.biz>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+
+msgid "Polls"
+msgstr "Опросы"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Manage Poll"
+msgstr "Опросы"
+
+msgid "New Poll"
+msgstr "Добавить"
+
+msgid "Submit"
+msgstr "Сохранить"
+
+msgid "The poll has been saved"
+msgstr "Опрос добавлен"
+
+msgid "Edit Poll"
+msgstr "Редактирование"
+
+msgid "Statistics"
+msgstr "Результаты"
+
+
+msgid "Answer"
+msgstr "Ответ"
+
+msgid "Vote Count"
+msgstr "Голоса"
+
+msgid "Percent"
+msgstr "Процент"
+
