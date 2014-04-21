@@ -30,9 +30,14 @@ class PollsActivation {
  */
 	public function onActivation(&$controller) {
 		// ACL: set ACOs with permissions
-		$controller->Croogo->addAco('Polls/Polls/admin_index'); // PollsController::admin_index()
-		$controller->Croogo->addAco('Polls/Polls/get_poll', array('registered', 'public')); // PollsController::index()
-		$controller->Croogo->addAco('Polls/Polls/submit_poll', array('registered', 'public')); // PollsController::index()
+		$controller->Croogo->addAco('Polls/Polls/admin_index');
+		$controller->Croogo->addAco('Polls/Polls/admin_add');
+		$controller->Croogo->addAco('Polls/Polls/admin_edit');
+		$controller->Croogo->addAco('Polls/Polls/admin_delete');
+		$controller->Croogo->addAco('Polls/Polls/index', array('registered', 'public'));
+		$controller->Croogo->addAco('Polls/Polls/get_poll', array('registered', 'public'));
+		$controller->Croogo->addAco('Polls/Polls/get_answers', array('registered', 'public'));
+		$controller->Croogo->addAco('Polls/Polls/submit_poll', array('registered', 'public'));
 	}
 
 /**
