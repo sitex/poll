@@ -4,8 +4,10 @@
 /**
  * Admin menu (navigation)
  */
-CroogoNav::add('content.children.example', array(
+CroogoNav::add('polls', array(
+	'icon' => array('bar-chart', 'large'),
 	'title' => __d('polls','Polls'),
+	'weight' => 11,
 	'url' => array(
 		'admin' => true,
 		'plugin' => 'polls',
